@@ -188,7 +188,7 @@ const booWho = bool => typeof bool === `boolean`
 
 
 /* ------------------------------------------------------------------------
-Basic Algorithm Scripting: Title Case a SentencePassed
+Basic Algorithm Scripting: Title Case a Sentence
 Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
 
 For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
@@ -208,4 +208,124 @@ const titleCase = str => {
         acc.push(el.charAt(0).toUpperCase() + el.slice(1))
         return acc
     }, []).join(` `)
+}
+
+
+/* ------------------------------------------------------------------------
+Basic Algorithm Scripting: Slice and Splice
+
+You are given two arrays and an index.
+Copy each element of the first array into the second array, in order.
+Begin inserting elements at index n of the second array.
+Return the resulting array. The input arrays should remain the same after the function runs.
+
+frankenSplice([1, 2, 3], [4, 5], 1) should return [4, 1, 2, 3, 5].
+frankenSplice([1, 2], ["a", "b"], 1) should return ["a", 1, 2, "b"].
+frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2) should return ["head", "shoulders", "claw", "tentacle", "knees", "toes"].
+All elements from the first array should be added to the second array in their original order.
+The first array should remain the same after the function runs.
+The second array should remain the same after the function runs.*/
+
+const frankenSplice = (arr1, arr2, n) => {
+    const res = arr2.slice()
+    res.splice(n, 0, ...arr1)
+    return res;
+}
+
+
+/* ------------------------------------------------------------------------
+Basic Algorithm Scripting: Falsy BouncerPassed
+
+Remove all falsy values from an array.
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+Hint: Try converting each value to a Boolean.
+
+bouncer([7, "ate", "", false, 9]) should return [7, "ate", 9].
+bouncer(["a", "b", "c"]) should return ["a", "b", "c"].
+bouncer([false, null, 0, NaN, undefined, ""]) should return [].
+bouncer([null, NaN, 1, 2, undefined]) should return [1, 2].*/
+
+const bouncer = arr => {
+    return arr.reduce((acc, el) => {
+        if (el) acc.push(el)
+        return acc
+    }, [])
+}
+
+
+/* ------------------------------------------------------------------------
+Basic Algorithm Scripting: Where do I Belong
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. 
+The returned value should be a number.
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+getIndexToIns([10, 20, 30, 40, 50], 35) should return 3.
+getIndexToIns([10, 20, 30, 40, 50], 35) should return a number.
+getIndexToIns([10, 20, 30, 40, 50], 30) should return 2.
+getIndexToIns([10, 20, 30, 40, 50], 30) should return a number.
+getIndexToIns([40, 60], 50) should return 1.
+getIndexToIns([40, 60], 50) should return a number.
+getIndexToIns([3, 10, 5], 3) should return 0.
+getIndexToIns([3, 10, 5], 3) should return a number.
+getIndexToIns([5, 3, 20, 3], 5) should return 2.
+getIndexToIns([5, 3, 20, 3], 5) should return a number.
+getIndexToIns([2, 20, 10], 19) should return 2.
+getIndexToIns([2, 20, 10], 19) should return a number.
+getIndexToIns([2, 5, 10], 15) should return 3.
+getIndexToIns([2, 5, 10], 15) should return a number.
+getIndexToIns([], 1) should return 0.
+getIndexToIns([], 1) should return a number.*/
+
+const getIndexToIns = (arr, num) => {
+    arr.push(num);
+    return  arr.sort((a, b) => a - b).indexOf(num);
+}
+
+
+/* ------------------------------------------------------------------------
+Basic Algorithm Scripting: Mutations
+
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
+Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".
+
+mutation(["hello", "hey"]) should return false.
+mutation(["hello", "Hello"]) should return true.
+mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]) should return true.
+mutation(["Mary", "Army"]) should return true.
+mutation(["Mary", "Aarmy"]) should return true.
+mutation(["Alien", "line"]) should return true.
+mutation(["floor", "for"]) should return true.
+mutation(["hello", "neo"]) should return false.
+mutation(["voodoo", "no"]) should return false.
+mutation(["ate", "date"] should return false.
+mutation(["Tiger", "Zebra"]) should return false.
+mutation(["Noel", "Ole"]) should return true.*/
+
+const mutation = arr => {
+    for (const el of arr[1].toLowerCase().split(``))
+        if (!arr[0].toLowerCase().includes(el)) return false 
+  
+    return true 
+}
+
+
+/* ------------------------------------------------------------------------
+Basic Algorithm Scripting: Chunky Monkey
+Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2) should return [["a", "b"], ["c", "d"]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3) should return [[0, 1, 2], [3, 4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2) should return [[0, 1], [2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4) should return [[0, 1, 2, 3], [4, 5]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3) should return [[0, 1, 2], [3, 4, 5], [6]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4) should return [[0, 1, 2, 3], [4, 5, 6, 7], [8]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2) should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].*/
+
+const chunkArrayInGroups = (arr, size) => {
+    const res = []  
+    while (arr.length) res.push(arr.splice(0, size))
+    return res
 }
