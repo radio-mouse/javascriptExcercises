@@ -14,7 +14,7 @@ const reverseString = str => str.split(``).reverse().join(``)
 
 
 /* ------------------------------------------------------------------------
-Basic Algorithm Scripting: Factorialize a NumberPassed
+Basic Algorithm Scripting: Factorialize a Number
 
 Return the factorial of the provided integer.
 If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
@@ -62,9 +62,7 @@ findLongestWordLength("What is the average airspeed velocity of an unladen swall
 findLongestWordLength("What if we try a super-long word such as otorhinolaryngology") should return 19.*/
 
 const findLongestWordLength = str => {
-    const arr = str.split(` `)
-
-    return arr.reduce((max, el) => {
+    return str.split(` `).reduce((max, el) => {
         if (el.length > max) max = el.length
         return max
     }, 0)  
@@ -196,14 +194,7 @@ titleCase("sHoRt AnD sToUt") should return Short And Stout.
 Passed
 titleCase("HERE IS MY HANDLE HERE IS MY SPOUT") should return Here Is My Handle Here Is My Spout.*/
 
-const titleCase = str => {
-    const arr = str.toLowerCase().split(` `)
-  
-    return arr.reduce((acc, el) => {
-        acc.push(el.charAt(0).toUpperCase() + el.slice(1))
-        return acc
-    }, []).join(` `)
-}
+const titleCase = str => str.toLowerCase().split(` `).reduce((acc, el) => acc.concat(el.charAt(0).toUpperCase() + el.slice(1)), []).join(` `)
 
 
 /* ------------------------------------------------------------------------
@@ -222,7 +213,7 @@ The first array should remain the same after the function runs.
 The second array should remain the same after the function runs.*/
 
 const frankenSplice = (arr1, arr2, n) => {
-    const res = arr2.slice()
+    const res = [...arr2]
     res.splice(n, 0, ...arr1)
     return res;
 }
@@ -272,10 +263,7 @@ getIndexToIns([2, 5, 10], 15) should return a number.
 getIndexToIns([], 1) should return 0.
 getIndexToIns([], 1) should return a number.*/
 
-const getIndexToIns = (arr, num) => {
-    arr.push(num);
-    return  arr.sort((a, b) => a - b).indexOf(num);
-}
+const getIndexToIns = (arr, num) => arr.concat(num).sort((a, b) => a - b).indexOf(num)
 
 
 /* ------------------------------------------------------------------------
