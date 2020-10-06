@@ -231,12 +231,7 @@ bouncer(["a", "b", "c"]) should return ["a", "b", "c"].
 bouncer([false, null, 0, NaN, undefined, ""]) should return [].
 bouncer([null, NaN, 1, 2, undefined]) should return [1, 2].*/
 
-const bouncer = arr => {
-    return arr.reduce((acc, el) => {
-        if (el) acc.push(el)
-        return acc
-    }, [])
-}
+const bouncer = arr => arr.reduce((acc, el) => el ? acc.concat(el) : acc, [])
 
 
 /* ------------------------------------------------------------------------
