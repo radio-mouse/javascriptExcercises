@@ -17,3 +17,8 @@
   * Mutations
   * Chunky Monkey
 * Intermediate Algorithm Scripting
+  * Sum All Numbers in a Range
+  * Diff Two Arrays
+  * Seek and Destroy
+  * Wherefore art thou
+  * Spinal Tap Case
