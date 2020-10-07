@@ -77,7 +77,8 @@ whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}) should re
 
 const whatIsInAName = (collection, source) => 
     collection.reduce((acc, e) => 
-        Object.entries(source).every(([key, val] = el) => e[key] === val) ? acc.concat(e) : acc, [])
+        Object.entries(source).every(([key, val] = el) => e[key] === val) ? acc.concat(e) : acc
+    , [])
 
 
 /* ------------------------------------------------------------------------
