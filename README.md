@@ -24,3 +24,4 @@
   * Spinal Tap Case
   * Search and Replace
   * DNA Pairing
+  * Sorted Union
