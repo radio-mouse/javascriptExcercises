@@ -93,3 +93,40 @@ spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".
 spinalCase("AllThe-small Things") should return "all-the-small-things".*/
 
 const spinalCase = str => str.split(/\s|_|(?=[A-Z])/).join(`-`).toLowerCase()
+
+
+/* ------------------------------------------------------------------------
+Intermediate Algorithm Scripting: Search and Replace
+
+Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+First argument is the sentence to perform the search and replace on.
+Second argument is the word that you will be replacing (before).
+Third argument is what you will be replacing the second argument with (after).
+
+myReplace("Let us go to the store", "store", "mall") should return "Let us go to the mall"
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting") should return "He is Sitting on the couch".
+myReplace("I think we should look up there", "up", "Down") should return "I think we should look down there".
+myReplace("This has a spellngi error", "spellngi", "spelling") should return "This has a spelling error".
+myReplace("His name is Tom", "Tom", "john") should return "His name is John".
+myReplace("Let us get back to more Coding", "Coding", "algorithms") should return "Let us get back to more Algorithms".*/
+
+const myReplace = (str, before, after) => 
+    before.match(/^[A-Z]/) ? 
+        str.replace(before, after.charAt(0).toUpperCase() + after.slice(1)) 
+        : str.replace(before, after.toLowerCase())
+
+
+/* ------------------------------------------------------------------------
+Intermediate Algorithm Scripting: DNA Pairing
+
+The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+Return the provided character as the first element in each array.
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+
+pairElement("ATCGA") should return [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]].
+pairElement("TTGAG") should return [["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]].
+pairElement("CTCTA") should return [["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].*/
+
+const pairElement = str => str.split(``).map(el => [el, {A: `T`, T: `A`, C: `G`, G: `C`}[el]])

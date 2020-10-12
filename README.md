@@ -22,3 +22,5 @@
   * Seek and Destroy
   * Wherefore art thou
   * Spinal Tap Case
+  * Search and Replace
+  * DNA Pairing
