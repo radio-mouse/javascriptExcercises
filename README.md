@@ -25,3 +25,4 @@
   * Search and Replace
   * DNA Pairing
   * Sorted Union
+  * Convert HTML Entities
