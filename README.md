@@ -26,3 +26,4 @@
   * DNA Pairing
   * Sorted Union
   * Convert HTML Entities
+  * Binary Agents
