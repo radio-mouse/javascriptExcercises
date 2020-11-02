@@ -27,3 +27,4 @@
   * Sorted Union
   * Convert HTML Entities
   * Binary Agents
+  * Everything Be True
